@@ -1,18 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIButtonHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    Button MoveToolButton, StoneButton, IceButton;
+
+    private Blocks blocks;
+
     void Start()
     {
-        
+        CreateButtonListeners();
     }
 
-    // Update is called once per frame
-    void Update()
+    void CreateButtonListeners()
     {
-        
+        MoveToolButton.onClick.AddListener(EnterMoveMode);
+        StoneButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getStoneBlock()); });
+        IceButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getIceBlock()); });
     }
+
+    void EnterMoveMode()
+    {
+
+    }
+
+    void EnterBuildMode(GameObject BuildingBlock)
+    {
+
+    }
+
 }

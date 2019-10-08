@@ -5,6 +5,9 @@ using UnityEngine;
 public class CatMove : MonoBehaviour
 {
     [SerializeField]
+    private GameObject cat;
+
+    [SerializeField]
     private bool canMove = false;
 
     [SerializeField]
