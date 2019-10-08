@@ -5,9 +5,6 @@ using UnityEngine;
 public class CatMove : MonoBehaviour
 {
     [SerializeField]
-    private GameObject cat;
-
-    [SerializeField]
     private bool canMove = false;
 
     [SerializeField]
@@ -29,13 +26,13 @@ public class CatMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         CheckForInteraction();
         CheckForStateChange();
     }
 
-    void CheckForInteraction()
+    private void CheckForInteraction()
     {
         //if clicked with move tool
             //canMove= true

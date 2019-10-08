@@ -5,7 +5,7 @@ using UnityEngine;
 public class Blocks : MonoBehaviour
 {
     [SerializeField]
-    GameObject stoneBlock;
+    private GameObject stoneBlock;
 
     public GameObject getStoneBlock()
     {
@@ -13,7 +13,7 @@ public class Blocks : MonoBehaviour
     }
 
     [SerializeField]
-    GameObject iceBlock;
+    private GameObject iceBlock;
 
     public GameObject getIceBlock()
     {
