@@ -710,9 +710,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1f0db9ea10ee942b68e2d08c2a4435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveToolButton: {fileID: 0}
-  StoneButton: {fileID: 0}
-  IceButton: {fileID: 0}
+  MoveToolButton: {fileID: 1328364633}
+  StoneButton: {fileID: 22969053}
+  IceButton: {fileID: 1980941161}
 --- !u!1001 &388955281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -870,7 +870,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1618722296}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

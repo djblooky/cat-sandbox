@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIButtonHandler : MonoBehaviour
@@ -40,6 +38,7 @@ public class UIButtonHandler : MonoBehaviour
         {
             Manager.Instance.getBuildMode().setCurrentBuildingBlock(BuildingBlock);
             Manager.Instance.getBuildMode().Enable(true);
+            Debug.Log("Enabled build mode");
         }
     }
 
