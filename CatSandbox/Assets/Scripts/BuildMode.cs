@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildMode : MonoBehaviour
+public class BuildMode 
 {
     private bool Enabled = false;
 

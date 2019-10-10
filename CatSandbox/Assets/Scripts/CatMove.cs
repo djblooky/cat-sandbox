@@ -10,14 +10,20 @@ public class CatMove : MonoBehaviour
     [SerializeField]
     private float speed = 0;
     private Vector2 direction = new Vector2(0,0);
+    private Vector2 moveTranslation;
+
     private Vector2 destination;
 
+    private Ray ray;
+    private RaycastHit hit;
+
     private enum MoveState { Idle, MovingLeft, MovingRight, Jumping, Falling };
-    MoveState CurrentMoveState = MoveState.Idle;
+    MoveState CurrentMoveState;
 
     private void Awake()
     {
-        
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        CurrentMoveState = MoveState.Idle;
     }
 
     // Start is called before the first frame update
@@ -40,18 +46,46 @@ public class CatMove : MonoBehaviour
     {
         if(CurrentMoveState == MoveState.Idle && Manager.Instance.getMoveMode().isEnabled())
         {
-            //if clicked with move tool
-                //canMove= true
-                //change move tool pointer into destination pointer
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.name == "Cat")
+                {
+                    Debug.Log("This is a Player");
+                    // change move tool pointer into destination pointer
+                    canMove = true;
+                }
+                else
+                {
+                    Debug.Log("This isn't a Player");
+                }
+            }
+  
         }
     }
 
-    void CheckForStateChange()
+    void CheckForStateChange() 
     {
-        if (canMove)
+        if (canMove && Input.GetMouseButtonDown(0)) //if left click and can move cat
         {
-            //getClickCoordinates
-                //depending on location of pointer click, set CurrentMoveState
+            destination = Input.mousePosition;
+            canMove = false; //cant move until current move is finished
+
+            if ((transform.position.y + 400) < destination.y) //if clicked above cat by certain amount
+            {
+                CurrentMoveState = MoveState.Jumping;
+            }
+
+            else if (transform.position.x < destination.x) //if clicked right of cat
+            {
+                CurrentMoveState = MoveState.MovingRight;
+            }
+
+            else if (transform.position.x > destination.x) //if clicked left of cat
+            {
+                CurrentMoveState = MoveState.MovingLeft;
+            }
+
+            UpdateMoveState();
         }
 
     }
@@ -60,7 +94,6 @@ public class CatMove : MonoBehaviour
     {
         //if destination reached
             //CurrentMoveState = MoveState.Idle;
-            //canMove = false;
     }
 
     void UpdateMoveState()
@@ -69,9 +102,9 @@ public class CatMove : MonoBehaviour
         {
             case MoveState.Idle: Idle();
                 break;
-            case MoveState.MovingLeft: Move(new Vector2(-1, 0));
+            case MoveState.MovingLeft: MovingLeft();
                 break;
-            case MoveState.MovingRight: Move(new Vector2(1, 0));
+            case MoveState.MovingRight: MovingRight();
                 break;
             case MoveState.Jumping: Jumping();
                 break;
@@ -84,7 +117,11 @@ public class CatMove : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
-        this.direction += direction;
+        //time corrected movement
+        moveTranslation = new Vector2(direction.x, direction.y) * Time.deltaTime * speed;
+
+        //move
+        transform.position += new Vector3(moveTranslation.x, moveTranslation.y);
     }
 
     void Idle()
@@ -105,6 +142,18 @@ public class CatMove : MonoBehaviour
     {
         //falling animation
         Move(new Vector2(0, -1));
+    }
+
+    void MovingRight()
+    {
+        //right animation
+        Move(new Vector2(1, 0));
+    }
+
+    void MovingLeft()
+    {
+        //flip right animation?
+        Move(new Vector2(-1, 0));
     }
 
     

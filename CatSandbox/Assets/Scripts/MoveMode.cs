@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMode : MonoBehaviour
+public class MoveMode 
 {
     private bool Enabled = false;
 
