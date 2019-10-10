@@ -18,14 +18,18 @@ public class UIButtonHandler : MonoBehaviour
     /// </summary>
     void CreateButtonListeners()
     {
-        MoveToolButton.onClick.AddListener(EnterInteractMode); //enters interact/move mode
+        MoveToolButton.onClick.AddListener(EnterMoveMode); //enters interact/move mode
         StoneButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getStoneBlock()); }); //passes in stone block to build mode
         IceButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getIceBlock()); }); //passes in ice block to build mode
     }
 
-    void EnterInteractMode()
+    void EnterMoveMode()
     {
-
+        if (!Manager.Instance.getMoveMode().isEnabled()) //if interact/move mode not enabled already
+        {
+            Manager.Instance.getMoveMode().Enable(true);
+            Debug.Log("Enabled move mode");
+        }
     }
 
     /// <summary>

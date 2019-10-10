@@ -10,4 +10,11 @@ public class Manager : Singleton<Manager>
     {
         return buildMode;
     }
+
+    private MoveMode moveMode;
+
+    public MoveMode getMoveMode()
+    {
+        return moveMode;
+    }
 }

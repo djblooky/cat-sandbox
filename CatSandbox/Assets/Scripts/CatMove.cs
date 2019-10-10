@@ -10,6 +10,7 @@ public class CatMove : MonoBehaviour
     [SerializeField]
     private float speed = 0;
     private Vector2 direction = new Vector2(0,0);
+    private Vector2 destination;
 
     private enum MoveState { Idle, MovingLeft, MovingRight, Jumping, Falling };
     MoveState CurrentMoveState = MoveState.Idle;
@@ -30,12 +31,19 @@ public class CatMove : MonoBehaviour
     {
         CheckForInteraction();
         CheckForStateChange();
+        CheckIfDestinationReached();
     }
-
-    private void CheckForInteraction()
+    /// <summary>
+    /// Cat can only be interacted with if Idling and if in move mode
+    /// </summary>
+    private void CheckForInteraction() 
     {
-        //if clicked with move tool
-            //canMove= true
+        if(CurrentMoveState == MoveState.Idle && Manager.Instance.getMoveMode().isEnabled())
+        {
+            //if clicked with move tool
+                //canMove= true
+                //change move tool pointer into destination pointer
+        }
     }
 
     void CheckForStateChange()
@@ -43,9 +51,16 @@ public class CatMove : MonoBehaviour
         if (canMove)
         {
             //getClickCoordinates
-            //depending on location of pointer click, set CurrentMoveState
+                //depending on location of pointer click, set CurrentMoveState
         }
 
+    }
+
+    void CheckIfDestinationReached()
+    {
+        //if destination reached
+            //CurrentMoveState = MoveState.Idle;
+            //canMove = false;
     }
 
     void UpdateMoveState()
@@ -58,9 +73,9 @@ public class CatMove : MonoBehaviour
                 break;
             case MoveState.MovingRight: Move(new Vector2(1, 0));
                 break;
-            case MoveState.Jumping: Move(new Vector2(0, 1));
+            case MoveState.Jumping: Jumping();
                 break;
-            case MoveState.Falling:  Move(new Vector2(0, -1));
+            case MoveState.Falling: Falling();
                 break;
             default: Idle();
                 break;
@@ -76,7 +91,20 @@ public class CatMove : MonoBehaviour
     {
         speed = 0;
         //play idle animation loop (sitting/cleaning/laying down)
+        //or add more move states
 
+    }
+
+    void Jumping()
+    {
+        //jump animation
+        Move(new Vector2(0, 1));
+    }
+
+    void Falling()
+    {
+        //falling animation
+        Move(new Vector2(0, -1));
     }
 
     
