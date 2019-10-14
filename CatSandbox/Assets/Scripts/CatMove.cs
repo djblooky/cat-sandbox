@@ -18,18 +18,12 @@ public class CatMove : MonoBehaviour
     private RaycastHit hit;
 
     private enum MoveState { Idle, MovingLeft, MovingRight, Jumping, Falling };
-    MoveState CurrentMoveState;
-
-    private void Awake()
-    {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        CurrentMoveState = MoveState.Idle;
-    }
+    MoveState CurrentMoveState = MoveState.Idle;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     }
 
     // Update is called once per frame
@@ -46,9 +40,9 @@ public class CatMove : MonoBehaviour
     {
         if(CurrentMoveState == MoveState.Idle && Manager.Instance.getMoveMode().isEnabled())
         {
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit)) //if clicked on screen
             {
-                if (hit.transform.name == "Cat")
+                if (hit.transform.tag == "Cat")
                 {
                     Debug.Log("This is a Player");
                     // change move tool pointer into destination pointer

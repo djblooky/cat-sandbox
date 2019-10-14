@@ -120,6 +120,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &21948402 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1241367798426877875, guid: 18cf593617b7fc344b4949dcc30fa081,
+    type: 3}
+  m_PrefabInstance: {fileID: 1241367798438544750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &22969052 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1241367798426877874, guid: 18cf593617b7fc344b4949dcc30fa081,
@@ -406,6 +418,18 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_IsOn: 1
+--- !u!114 &201070251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3013439808068031249, guid: 0bddc24f76ab8df409cd1a4327c1ca85,
+    type: 3}
+  m_PrefabInstance: {fileID: 3013439809310445688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &231010376
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,7 +551,6 @@ GameObject:
   - component: {fileID: 315993137}
   - component: {fileID: 315993136}
   - component: {fileID: 315993135}
-  - component: {fileID: 315993138}
   - component: {fileID: 315993139}
   m_Layer: 0
   m_Name: EventSystem
@@ -584,24 +607,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &315993138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315993134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc1f0db9ea10ee942b68e2d08c2a4435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveToolButton: {fileID: 7510277923344006390, guid: 0b4389d91854ee940808397f5dd9e319,
-    type: 3}
-  StoneButton: {fileID: 1241367798426877875, guid: 18cf593617b7fc344b4949dcc30fa081,
-    type: 3}
-  IceButton: {fileID: 3013439808068031249, guid: 0bddc24f76ab8df409cd1a4327c1ca85,
-    type: 3}
 --- !u!114 &315993139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1821,9 +1826,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1522402242}
   - component: {fileID: 1522402241}
-  - component: {fileID: 1522402243}
-  - component: {fileID: 1522402244}
   - component: {fileID: 1522402245}
+  - component: {fileID: 1522402243}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1870,21 +1874,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1522402240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed415d7bdec446498791f58d4df0df2, type: 3}
+  m_Script: {fileID: 11500000, guid: cc1f0db9ea10ee942b68e2d08c2a4435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1522402244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522402240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84dfe9c26d04e564abdf792b632b445b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  MoveToolButton: {fileID: 2101321824}
+  StoneButton: {fileID: 21948402}
+  IceButton: {fileID: 201070251}
 --- !u!114 &1522402245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2264,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3013439809310445688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101321824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7510277923344006390, guid: 0b4389d91854ee940808397f5dd9e319,
+    type: 3}
+  m_PrefabInstance: {fileID: 7510277922218672303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1241367798438544750
 PrefabInstance:
   m_ObjectHideFlags: 0

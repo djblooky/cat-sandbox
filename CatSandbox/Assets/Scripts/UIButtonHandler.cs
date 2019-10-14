@@ -6,8 +6,6 @@ public class UIButtonHandler : MonoBehaviour
     [SerializeField]
     Button MoveToolButton, StoneButton, IceButton;
 
-    private Blocks blocks;
-
     void Start()
     {
         CreateButtonListeners();
@@ -19,13 +17,13 @@ public class UIButtonHandler : MonoBehaviour
     void CreateButtonListeners()
     {
         MoveToolButton.onClick.AddListener(EnterMoveMode); //enters interact/move mode
-        StoneButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getStoneBlock()); }); //passes in stone block to build mode
-        IceButton.onClick.AddListener(delegate { EnterBuildMode(blocks.getIceBlock()); }); //passes in ice block to build mode
+        StoneButton.onClick.AddListener(delegate { EnterBuildMode(Blocks.getStoneBlock()); }); //passes in stone block to build mode
+        IceButton.onClick.AddListener(delegate { EnterBuildMode(Blocks.getIceBlock()); }); //passes in ice block to build mode
     }
 
     void EnterMoveMode()
     {
-        if (!Manager.Instance.getMoveMode().isEnabled()) //if interact/move mode not enabled already
+        if (!(Manager.Instance.getMoveMode().isEnabled())) //if interact/move mode not enabled already
         {
             Manager.Instance.getMoveMode().Enable(true);
             Debug.Log("Enabled move mode");
@@ -38,7 +36,7 @@ public class UIButtonHandler : MonoBehaviour
     /// <param name="BuildingBlock">Block player has selected to build with</param>
     void EnterBuildMode(GameObject BuildingBlock)
     {
-        if (!Manager.Instance.getBuildMode().isEnabled()) //if build mode not enabled already
+        if (!(Manager.Instance.getBuildMode().isEnabled())) //if build mode not enabled already
         {
             Manager.Instance.getBuildMode().setCurrentBuildingBlock(BuildingBlock);
             Manager.Instance.getBuildMode().Enable(true);

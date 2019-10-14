@@ -5,19 +5,19 @@ using UnityEngine;
 public class Blocks : MonoBehaviour
 {
     [SerializeField]
-    private GameObject stoneBlock;
+    private static GameObject stoneBlock;
 
-    public GameObject getStoneBlock()
+    public static GameObject getStoneBlock()
     {
-        return Instantiate(stoneBlock);
+        return stoneBlock;
     }
 
     [SerializeField]
-    private GameObject iceBlock;
+    private static GameObject iceBlock;
 
-    public GameObject getIceBlock()
+    public static GameObject getIceBlock()
     {
-        return Instantiate(iceBlock);
+        return iceBlock;
     }
 
 }
